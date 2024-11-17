@@ -1,0 +1,1 @@
+POSTGRESQL_CONNECTION_STRING = "postgres://usuario:contraseña@host:puerto/base_de_datos"
