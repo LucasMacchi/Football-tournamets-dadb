@@ -7,6 +7,7 @@ const connectionString: string = process.env.POSTGRESQL_CONNECTION_STRING || "NO
 export default async function QueryMaker(query: string, does_return: boolean): Promise<void | any> {
     const connection = new Client({connectionString})
     try {
+        console.log(query)
         await connection.connect()
         const response = (await connection.query(query)).rows
         await connection.end()

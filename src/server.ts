@@ -4,6 +4,7 @@ import bodyParser from "body-parser";
 import test_route from "./Routes/Controllers/testController";
 import { IRequest, IResponse } from "./interfaces";
 import queryTest from "./Routes/Controllers/queryTest";
+import { router } from "./Routes";
 const port = 4200
 const server = express()
 
@@ -25,7 +26,7 @@ server.get('/query', async (_req: IRequest, res: IResponse) => {
 })
 
 //Para despues
-//server.use('/',)
+server.use('/', router)
 
 export default function(): void {
     try {
