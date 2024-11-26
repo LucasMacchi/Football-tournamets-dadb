@@ -34,13 +34,13 @@ torneo_routes.get("/fixture", async (req: IRequest, res: IResponse) => {
     const response = getAll("fixture")
     res.send(response)
 })
-//
+//Trae un torneo especifico
 torneo_routes.get("/torneo/:id", async (req: IRequest, res: IResponse) => {
     const id = req.params.id
     const response = getById("torneo", "torneoid", parseInt(id))
     res.send(response)
 })
-//Trae todas las fixtures
+//Trae una fixture especifica
 torneo_routes.get("/fixture/:id", async (req: IRequest, res: IResponse) => {
     const id = req.params.id
     const response = getById("fixture", "fixtureid", parseInt(id))
