@@ -13,18 +13,6 @@ const server = express()
 server.use(morgan('dev'))
 server.use(bodyParser.json())
 
-//Ping
-server.get('/ping', (_req: IRequest, res: IResponse) => {
-    res.send(test_route("Global"))
-})
-
-//Test queries
-server.get('/query', async (_req: IRequest, res: IResponse) => {
-    const response = await queryTest()
-    console.log(response)
-    res.send(response)
-})
-
 //Para despues
 server.use('/', router)
 
