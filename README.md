@@ -57,6 +57,8 @@ Base de datos y servidor hecho por Lucas Macchi. Es parte de un proyecto final p
     body {equipo_id: id del equipo, torneo_id: id del torneo}
     Inscribe un equipo a un torneo
 
+- GET /jugadores/:id
+    Usando el id de un equipo, este devuelve todos los jugadres que pertenecen al mismo
 - GET /equipo/one/:id
     Trae un equipo usando un id
 - GET /equipo/all
@@ -80,6 +82,10 @@ Base de datos y servidor hecho por Lucas Macchi. Es parte de un proyecto final p
     body {tiempo: string, tipo_tarjeta: string, jugador: id_jugador, encuentro: id_encuentro}
     Crea una tarjeta
 
+- GET /partido/goles/:id
+    Usando el id de un encuentro, devuelve todos los goles hechos en el encuentro
+- GET /partido/tarjetas/:id
+    Usando el id de un encuentro, devuelve todas las tarjetas hechas en el encuentro
 - GET /partido/gol/:id
     Trae un gol usando un id
 - GET /partido/gol
@@ -102,7 +108,14 @@ Base de datos y servidor hecho por Lucas Macchi. Es parte de un proyecto final p
 - POST /torneo/fixture
     body {fecha_inicio:string, division:string, categoria:string}
     Crea un fixture
+- POST /torneo/torneo_completo
+    body {torneo_id: numero, nro_ruedas}
+    Crea una cantidad de ruedas y los encuentros dentro de la misma
 
+- GET /torneo/equipos/:id
+    Con el id de un torneo, trae todos los equipos incriptos al mismo, junto con su nombre y division
+- GET /torneo/torneo_completo
+    Devuelve todas las ruedas y sus encuentros de todos los fixtures y torneos
 - GET /torneo/torneo
     Trae todos los torneos
 - GET /torneo/fixture

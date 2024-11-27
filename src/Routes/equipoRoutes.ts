@@ -30,6 +30,12 @@ equipo_routes.post("/inscripcion", async (req: IRequest, res: IResponse) => {
     res.send("Equipo inscripto.")
 })
 //--------------------------GETTER--------------------------//
+//Obtner los jugadores dentro de un equipo
+equipo_routes.get("/jugadores/:id", async (req: IRequest, res: IResponse) => {
+    const id = req.params.id
+    const response = await getById( "jugador", "equipo",parseInt(id))
+    res.send(response)
+})
 //Obtener un equipo
 equipo_routes.get("/one/:id", async (req: IRequest, res: IResponse) => {
     const id = req.params.id
