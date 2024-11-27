@@ -2,7 +2,7 @@ import QueryMaker from "../Utils/queryMaker";
 import postFixuture from "./postFixture";
 
 export default async function postTorneo (
-    nombre: string, periodo_inscripcion: string, periodo_inicio: string,
+    nombre: string, periodo_inscripcion: Date, periodo_inicio: Date,
     division: string, categoria: string
 ){
     const fixtureid = await postFixuture(periodo_inicio, division, categoria, true)

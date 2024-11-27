@@ -23,6 +23,18 @@ partido_routes.post("/tarjeta", async (req:IRequest, res: IResponse) => {
     res.send("Tarjeta creada.")
 });
 //--------------------------GETTER--------------------------//
+//Obtener los goles de un encuentro
+partido_routes.get("/goles/:id", async (req: IRequest, res: IResponse) => {
+    const id = req.params.id
+    const response = await getById("gol", "encuentro", parseInt(id))
+    res.send(response)
+});
+//Obtener los goles de un encuentro
+partido_routes.get("/tarjetas/:id", async (req: IRequest, res: IResponse) => {
+    const id = req.params.id
+    const response = await getById("tarjeta", "encuentro", parseInt(id))
+    res.send(response)
+});
 //Obtener todos los goles
 partido_routes.get("/gol", async (req: IRequest, res: IResponse) => {
     const response = await getAll("gol")

@@ -37,7 +37,6 @@ router.use("/partido", partido_routes)
 router.use("/torneo", torneo_routes)
 
 //Error handler
-
 router.use((err: any, _req: IRequest, res: IResponse, _next:NextFunction) => {
     const statusCode = err.statusCode || 500;
     res.status(statusCode).json({

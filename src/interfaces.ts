@@ -9,6 +9,23 @@ export interface IPersona {
     direccion: string,
     telefono: number
 }
+export interface IEquipo {
+    equipoid: number,
+    equipo_id: number,
+    categoria: string,
+    division: string,
+    tecnico: number
+}
+export interface IRueda {
+    fecha_inicio: Date,
+    fixtureid: number,
+    ruedaid: number
+}
+export interface IMatch {
+    equipo_1: number,
+    equipo_2: number,
+    date: Date
+}
 export interface IArbitro extends IPersona {
     nivel_experiencia: string,
     certificado: boolean,
@@ -18,6 +35,13 @@ export interface ICancha {
     canchaid: number,
     nombre: string,
     direccion: string
+}
+export interface ITorneo {
+    nombre: string,
+    periodo_inscripcion: Date,
+    periodo_inicio: Date,
+    fixtureid:number,
+    torneoid: number
 }
 
 
