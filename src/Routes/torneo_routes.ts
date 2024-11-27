@@ -32,7 +32,8 @@ torneo_routes.post("/torneo_completo", async (req: IRequest, res: IResponse) => 
         await createTorneo(torneo_id, nro_ruedas)
         res.send("Torneo entero creado.")
     } catch (error) {
-        res.status(404).send("Error")
+        if(error instanceof Error) res.status(404).send(error.message)
+        else res.status(404).send("Error")
     }
 
 });
