@@ -6,6 +6,7 @@ import getEquiposTorneo from "./getEquiposTorneo";
 export default async function createTorneo(torneo_id:number, nro_ruedas: number) {
     const torneo: Array<ITorneo> = await getById("torneo", "torneoid", torneo_id)
     const equipos: Array<IEquipo> = await getEquiposTorneo(torneo[0].torneoid)
+    console.log(equipos)
     if(equipos.length > 1){
         let aux_date = torneo[0].periodo_inicio
         for (let i = 1; i <= nro_ruedas; i++) {
