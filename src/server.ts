@@ -8,10 +8,7 @@ const server = express()
 
 //Middlewares
 
-server.use(cors({
-    origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'DELETE']
-}))
+server.use(cors())
 server.use(morgan('dev'))
 server.use(bodyParser.json())
 
