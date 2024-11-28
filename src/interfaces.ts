@@ -7,7 +7,7 @@ export interface IPersona {
     nombre: string,
     apellido: string,
     direccion: string,
-    telefono: number
+    telefono: string
 }
 export interface IEquipo {
     equipoid: number,

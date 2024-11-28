@@ -5,7 +5,7 @@ import postTeam from "./postTeam";
 interface ITecnicoId {
     tecnico_pk: number
 }
-export default async function postTenicoEquipo (nombre: string, apellido: string, direccion: string, telefono: number, nacimiento: Date, 
+export default async function postTenicoEquipo (nombre: string, apellido: string, direccion: string, telefono: string, nacimiento: Date, 
     nombre_equipo: string, division: TDivisiones, categoria: TCategorias
 ){
     const tecnicoid:ITecnicoId = await postTenico(nombre, apellido, direccion, telefono ,nacimiento)
