@@ -15,11 +15,14 @@ Base de datos y servidor hecho por Lucas Macchi. Es parte de un proyecto final p
 
 ## PERSONAS ENDPOINTS
 
+- POST /persona/tecnico_equipo
+    body {nombre: string, apellido: string, direccion: string, telefono: numero, nacimiento: fecha, nombre_equipo: string, division: string, categoria: string}
+    Crea un tecnico y con el id del mismo, un equipo.
 - POST /persona/tecnico  
     body {nombre:string, apellido:string, direccion:string, telefono: numero, nacimiento: string}
-    Crea un tecnico
+    Crea un tecnico y devuelve su clave primaria
 - POST /persona/jugador
-    body {nombre:string, apellido:string, direccion:string, telefono: numero, nacimiento: stringm numero_socio: numero, categoria: string, equipo: id del equipo}
+    body {nombre:string, apellido:string, direccion:string, telefono: numero, nacimiento: string, numero_socio: numero, categoria: string, equipo: id del equipo}
     Crea un Jugador
 - POST /persona/arbitro
     body {nombre:string, apellido:string, direccion:string, telefono: numero, nivel_experiencia: string, certificado: booleano}

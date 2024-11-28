@@ -5,6 +5,7 @@ import { IRequest, IResponse } from "../interfaces";
 import postTenico from "./Controllers/postTecnico";
 import postJugador from "./Controllers/postJugador";
 import postArbitro from "./Controllers/postArbitro";
+import postTenicoEquipo from "./Controllers/postTecnicoEquipo";
 
 
 
@@ -13,6 +14,12 @@ import deleteQueryById from "./Utils/deleteQueryById";
 import getById from "./Utils/getById";
 import getAll from "./Utils/getAll";
 //Rutas
+//Crea Tecnico y un equipo
+personas_routes.post("/tecnico_equipo", async (req: IRequest, res: IResponse) => {
+    const {nombre, apellido, direccion, telefono, nacimiento, nombre_equipo, division, categoria} = req.body
+    await postTenicoEquipo(nombre, apellido, direccion, telefono, nacimiento, nombre_equipo, division, categoria)
+    res.send("Tecnico y equipo creado")
+})
 //Crea Tecnico
 personas_routes.post("/tecnico", async (req: IRequest, res: IResponse) => {
     const {nombre, apellido, direccion, telefono, nacimiento} = req.body
