@@ -6,7 +6,7 @@ import postEncuentro from "./postEncuentro";
 export default async function postRueda (fecha_inicio: Date, fixtureid: number, torneoid: number) {
     const equipos:Array<IEquipo> = await getById("inscripcion","torneo_id", torneoid)
     const sql = `insert into public.rueda(fecha_inicio,fixtureid) values ('${fecha_inicio.toString()}', '${fixtureid}') RETURNING ruedaid`
-    const ruedaid:Array<IRueda> = await QueryMaker(sql, true)
+    const ruedaid:IRueda = await QueryMaker(sql, true)
     const partidos: Array<IMatch> = []
     let aux_date = fecha_inicio
     for(let i = 0; i < equipos.length; i++) {
@@ -17,6 +17,6 @@ export default async function postRueda (fecha_inicio: Date, fixtureid: number, 
         }
     }
     partidos.forEach(async p =>  {
-        await postEncuentro(p.date, p.equipo_1, p.equipo_2, ruedaid[0].ruedaid)
+        await postEncuentro(p.date, p.equipo_1, p.equipo_2, ruedaid.ruedaid)
     });
 }
