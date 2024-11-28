@@ -6,9 +6,7 @@ export default async function postTorneo (
     division: string, categoria: string
 ){
     const fixtureid = await postFixuture(periodo_inicio, division, categoria, true)
-    const inscripcion = new Date(periodo_inscripcion)
-    const inicio = new Date(periodo_inicio)
     const sql = `insert into public.torneo(nombre,periodo_inscripcion,periodo_inicio, fixtureid) 
-    values ('${nombre}', '${inscripcion.toDateString()}', '${inicio.toDateString}','${fixtureid}')`
+    values ('${nombre}', '${periodo_inscripcion.toString()}', '${periodo_inicio.toString()}','${fixtureid}')`
     QueryMaker(sql, false)
 }

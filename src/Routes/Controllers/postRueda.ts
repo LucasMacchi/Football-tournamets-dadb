@@ -5,8 +5,7 @@ import postEncuentro from "./postEncuentro";
 
 export default async function postRueda (fecha_inicio: Date, fixtureid: number, torneoid: number) {
     const equipos:Array<IEquipo> = await getById("inscripcion","torneo_id", torneoid)
-    const date = new Date(fecha_inicio)
-    const sql = `insert into public.rueda(fecha_inicio,fixtureid) values ('${date.toDateString()}', '${fixtureid}') RETURNING ruedaid`
+    const sql = `insert into public.rueda(fecha_inicio,fixtureid) values ('${fecha_inicio.toString()}', '${fixtureid}') RETURNING ruedaid`
     const ruedaid:Array<IRueda> = await QueryMaker(sql, true)
     const partidos: Array<IMatch> = []
     let aux_date = fecha_inicio
