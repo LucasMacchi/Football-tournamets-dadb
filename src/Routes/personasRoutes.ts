@@ -16,8 +16,8 @@ import getAll from "./Utils/getAll";
 //Crea Tecnico
 personas_routes.post("/tecnico", async (req: IRequest, res: IResponse) => {
     const {nombre, apellido, direccion, telefono, nacimiento} = req.body
-    await postTenico(nombre, apellido, direccion, telefono, nacimiento)
-    res.send("Tenico Creado")
+    const response = await postTenico(nombre, apellido, direccion, telefono, nacimiento)
+    res.send(response)
 })
 //Crea Jugador
 personas_routes.post("/jugador", async (req: IRequest, res: IResponse) => {
